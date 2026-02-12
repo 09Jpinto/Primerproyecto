@@ -5,11 +5,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PrincipalController;
 
-//Route::get('/', function () { return view('welcome'); });
+// Route::get('/', function () { return view('welcome'); });
 
-Route::get('/hello',HomeController::class);
-Route::get('/post/mensaje',[PostController::class,'Mensaje']);
-Route::get('post/about/{param?}/{name},[postController::class,'About']);
+Route::get('/hello', HomeController::class);
+Route::get('/post/mensaje', [PostController::class, 'Mensaje']);
 
+Route::get('/post/about/{param?}/{name?}', [PostController::class, 'About']);
 
+Route::get('/principal/{param?}/{name?}', [PrincipalController::class, 'Principal']);
+
+Route::get('/empresa',[HomeController::class, 'empresa'])->name('empresa');
 
